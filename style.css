@@ -1,0 +1,103 @@
+
+@font-face {
+    font-family: 'Pixel Operator Mono';
+    src: url('font/PixelOperatorMono8-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+    background-color: rgb(244, 247, 220);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+
+.container{
+    text-align: center;
+    width: 100%;
+    padding: 1.2rem;
+}
+
+h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: 'Pixel Operator Mono', monospace;
+    margin-bottom: 20px;
+    font-style: oblique;
+    color: rgb(74, 112, 82);
+}
+
+.board{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    gap: 20px;
+    align-items: flex-start;
+    max-width: 1200px;
+}
+
+.list{
+    background-color: #c4c48b;
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 15px #e1ebd0, 0.55rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    width: 30%;
+    min-height: 400px;
+    border: 2px solid white;
+    min-height: 400px;
+}
+
+.list>h2{
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: rgb(63, 112, 66);
+    font-family: 'Pixel Operator Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.card{
+    background-color: #f4f7dc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    cursor: grab;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: grab;
+    color: rgb(74, 112, 82);
+    box-shadow: 0 5px 5px #9aad79, 0.2rem 0.2rem 0.5rem rgba(199, 184, 184, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:active{
+    cursor: grabbing;
+    transform: scale(1.1);
+    box-shadow: 0 8px 8px #7d915b, 0.3rem 0.3rem 0.7rem rgba(199, 184, 184, 0.4);
+    font-size: larger;
+}
+
+.list.over{
+    background-color:#bcc09c
+}
+
+@media (max-width: 770px) {
+    .board{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list{
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+}
