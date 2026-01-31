@@ -14,7 +14,7 @@
 }
 
 body{
-    background-color: rgb(244, 247, 220);
+    background-color: rgb(238, 241, 220);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,7 +34,7 @@ h1{
     font-family: 'Pixel Operator Mono', monospace;
     margin-bottom: 20px;
     font-style: oblique;
-    color: rgb(74, 112, 82);
+    color: rgb(89, 112, 74);
 }
 
 .board{
@@ -53,7 +53,7 @@ h1{
     box-shadow: 0 15px 15px #e1ebd0, 0.55rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
     width: 30%;
     min-height: 400px;
-    border: 2px solid white;
+    border: 2px dashed rgb(247, 255, 242);
     min-height: 400px;
 }
 
