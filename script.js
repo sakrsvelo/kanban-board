@@ -40,7 +40,7 @@ function addTask(e){
         id: Date.now(),
         description: task, 
         category: category,
-        status: "to-do"
+        status: "to-do" // DEFAULT STATUS: todo
     }); 
 
     localStorage.setItem("tasks", JSON.stringify(tasks)); 
