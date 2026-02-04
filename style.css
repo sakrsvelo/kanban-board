@@ -77,29 +77,101 @@ h1{
     color: rgb(74, 112, 82);
     box-shadow: 0 5px 5px #9aad79, 0.2rem 0.2rem 0.5rem rgba(199, 184, 184, 0.2);
     transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    text-align: left;
 }
 
-.card:active{
-    cursor: grabbing;
-    transform: scale(1.1);
-    box-shadow: 0 8px 8px #7d915b, 0.3rem 0.3rem 0.7rem rgba(199, 184, 184, 0.4);
-    font-size: larger;
+.card h4{
+    margin-bottom: 5px;
+    font-size: 1rem;
 }
 
-.list.over{
-    background-color:#bcc09c
-}
-
-.add-task-container{
+.card .category {
+    font-size: 0.75rem;
+    background-color: rgb(200, 210, 180);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #4a5d3f;
+    display: inline-block;
     margin-bottom: 10px;
 }
 
-#add-task{
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: flex-end;
+}
+
+.card-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #666;
+    transition: color 0.2s;
+}
+
+.card-btn.delete {
+    color: #b85c5c;
+}
+
+.card-btn.edit {
+    color: #5c7ab8;
+}
+
+.card-btn:hover {
+    text-decoration: underline;
+}
+
+.card:active {
+    cursor: grabbing;
+    transform: scale(1.02);
+    box-shadow: 0 8px 8px #7d915b, 0.3rem 0.3rem 0.7rem rgba(199, 184, 184, 0.4);
+}
+
+.list.over {
+    background-color: #bcc09c;
+}
+
+.add-task-container {
+    margin-bottom: 20px;
+}
+
+.search-container {
+    margin: 20px;
+}
+
+.add-task{
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
     justify-items: center;
-    margin-bottom: 20px;}
+    margin-bottom: 20px;
+}
+
+input{
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 50%;
+}
+
+button#add-task-button {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(89, 112, 74);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button#add-task-button:hover {
+    background-color: rgb(63, 82, 52);
+}
 
 @media (max-width: 770px) {
     .board{
