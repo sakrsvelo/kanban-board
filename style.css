@@ -15,6 +15,10 @@
 
 body{
     background-color: rgb(238, 241, 220);
+    background-image: url('gif3.gif');
+    background-position: center;
+    background-blend-mode: overlay; /* This blends the GIF with your color */
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
