@@ -5,8 +5,7 @@ const addTaskButton = document.getElementById("add-task-button"); // SELECTS THE
 const newTaskInput = document.getElementById("new-task-input"); // SELECTS THE NEW TASK INPUT FIELD
 const taskCategoryInput = document.getElementById("task-category"); // SELECTS THE TASK CATEGORY INPUT FIELD
 const searchInput = document.getElementById("search"); // SELECTS THE SEARCH INPUT FIELD
-
-const toDoList = document.getElementById("to-do");
+const toDoList = document.getElementById("to-do"); 
 const ongoingList = document.getElementById("ongoing");
 const doneList = document.getElementById("done");
 
@@ -86,8 +85,12 @@ function createCard(task){
         <h4>${task.description}</h4>
         ${task.category ? `<span class="category">${task.category}</span>` : ''}
         <div class="card-actions">
-            <button class="card-btn edit" onclick="editTask(${task.id})">Edit</button>
-            <button class="card-btn delete" onclick="deleteTask(${task.id})">Delete</button>
+            <button class="card-btn edit" onclick="editTask(${task.id})">
+                <i class="fa-solid fa-pen edit-icon"></i> 
+            </button>
+            <button class="card-btn delete" onclick="deleteTask(${task.id})">
+                <i class="fa-solid fa-trash"></i>
+            </button>
         </div>
     `;
 
@@ -105,13 +108,41 @@ function deleteTask(id){
 }
 
 function editTask(id){
-    const task = tasks.find(t => t.id === id);
-    if(task){
-        const newText = prompt("Edit Task:", task.description);
-        if(newText !== null && newText.trim() !== ""){
-            task.description = newText.trim();
+    const card = document.getElementById(id);
+    const title = card.querySelector("h4");
+    const editBtn = card.querySelector(".edit");
+    const icon = card.querySelector(".edit-icon");
+
+    const isEditable = title.isContentEditable;
+
+    if(!isEditable){
+        // MAKE EDITABLE
+        title.contentEditable = "true";
+        title.focus();
+        
+        // CHANGE FROM PEN TO CHECKMARK
+        icon.classList.remove("fa-pen");
+        icon.classList.add("fa-check");
+        
+        // DISABLE DRAG WHILE EDITING
+        card.setAttribute("draggable", "false"); 
+    } else {
+        // DISABLE EDIT
+        title.contentEditable = "false";
+        
+        // CHECKMARK TO PEN
+        icon.classList.remove("fa-check");
+        icon.classList.add("fa-pen");
+        editBtn.classList.remove("save");
+
+        // RE-ENABLE DRAG
+        card.setAttribute("draggable", "true");
+
+        // UPDATE DATA AND LOCAL STORAGE
+        const task = tasks.find(t => t.id === id);
+        if(task){
+            task.description = title.innerText.trim();
             localStorage.setItem("tasks", JSON.stringify(tasks));
-            updateTaskList();
         }
     }
 }
@@ -149,10 +180,10 @@ function dragDrop(e){
     e.preventDefault();
     this.classList.remove("over"); 
     
-    // "this" refers to the list (to-do, ongoing, done)
+    // "this" REFERS TO LIST (todo, ongoing, completed)
     const newStatus = this.id; 
 
-    // Update the data model
+    // UPDATE DATA
     const taskIndex = tasks.findIndex(t => t.id === draggedCardId);
     
     if(taskIndex > -1){
