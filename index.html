@@ -9,24 +9,29 @@
 <body>
     <div class="container">
         <h1>Kanban Board</h1>
+        <div class="add-task-container">
+            <div class="add-task" id="add-task">
+                <h3>Add New Task</h3>
+                <input type="text" id="new-task-input" placeholder="New task...">
+                <input type="text" id="task-category" placeholder="School work">
+                <button id="add-task-button" type="submit">Add Task</button>
+            </div>
+        </div>
         <div class="board">
-            <div class="list" id="list1">
+            <div class="list" id="to-do">
                 <!-- LIST 1 -->
                 <h2>To Do</h2>
-                <div class="card" id="card1" draggable="true">Task 1</div>
-                <div class="card" id="card2" draggable="true">Task 2</div>
-                <div class="card" id="card3" draggable="true">Task 3</div>
+                <!-- CARDS -->
             </div>
-            <div class="list" id="list2">
+            <div class="list" id="ongoing">
                 <!-- LIST 2 -->
                 <h2>In Progress</h2>
-                <div class="card" id="card4" draggable="true">Task 4</div>
-                <div class="card" id="card5" draggable="true">Task 5</div>
+                <!-- CARDS -->
         </div>
-            <div class="list" id="list3">
+            <div class="list" id="done">
                 <!-- LIST 3 -->
                 <h2>Done</h2>
-                <div class="card" id="card6" draggable="true">Task 6</div>
+                <!-- CARDS -->
             </div>
     </div>
     <script src="script.js"></script>

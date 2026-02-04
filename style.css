@@ -90,6 +90,17 @@ h1{
     background-color:#bcc09c
 }
 
+.add-task-container{
+    margin-bottom: 10px;
+}
+
+#add-task{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    justify-items: center;
+    margin-bottom: 20px;}
+
 @media (max-width: 770px) {
     .board{
         flex-direction: column;

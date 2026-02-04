@@ -1,5 +1,20 @@
 const cards = document.querySelectorAll(".card"); // SELECTS ALL CARD ELEMENTS [.card, .card, ...]
 const lists = document.querySelectorAll(".list"); // SELECTS ALL LIST ELEMENTS [.list, .list, ...]
+const board = document.querySelector(".board"); // SELECTS THE BOARD ELEMENT [.board]
+const addTaskButton = document.getElementById("add-task-button"); // SELECTS THE ADD TASK BUTTON [#add-task-button]
+const newTaskInput = document.getElementById("new-task-input"); // SELECTS THE NEW TASK INPUT FIELD [#new-task-input]
+const taskCategoryInput = document.getElementById("task-category"); // SELECTS THE TASK CATEGORY INPUT FIELD [#task-category]
+
+let tasks =JSON.parse(localStorage.getItem("tasks")) || []; // LOADS TASKS FROM LOCAL STORAGE OR INITIALIZES AN EMPTY ARRAY
+
+addTaskButton.addEventListener("click", addTask); // ADDS EVENT LISTENER TO ADD TASK BUTTON
+
+function addTask(){
+    e.preventDefault(); // PREVENTS BROWSER FROM REFRESHING
+
+    const task = newTaskInput.value.trim(); // GETS THE TRIMMED VALUE OF THE INPUT FIELD
+    const taskDescription = taskCategoryInput.value.trim(); // GETS THE TRIMMED VALUE OF THE CATEGORY INPUT FIELD
+}
 
 for(const card of cards) {
   card.addEventListener("dragstart", dragStart); // ADDS EVENT LISTENER FOR DRAG START
