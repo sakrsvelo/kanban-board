@@ -156,22 +156,30 @@ h1{
 }
 
 .search-container {
-    margin: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1200px;  
+    margin: 20px auto;
+    padding: 0 1rem; 
 }
 
-.add-task{
-    display: grid;
-    grid-template-columns: 1fr;
+.add-task {
+    display: flex;
     gap: 10px;
-    justify-items: center;
-    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
 input{
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    width: 50%;
+    width: 100%;
 }
 
 input:hover{
