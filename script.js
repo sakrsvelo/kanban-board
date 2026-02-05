@@ -110,27 +110,40 @@ function deleteTask(id){
 function editTask(id){
     const card = document.getElementById(id);
     const title = card.querySelector("h4");
+    const category = card.querySelector(".category");
     const editBtn = card.querySelector(".edit");
     const icon = card.querySelector(".edit-icon");
 
     const isEditable = title.isContentEditable;
 
     if(!isEditable){
-        // MAKE EDITABLE
+        // MAKE TASK EDITABLE
         title.contentEditable = "true";
         title.focus();
+
+        // MAKE CATEGORY EDITABLE
+        if(!category){
+            category = document.createElement("span");
+            category.classList.add("category");
+            category.innerText = "";
+            card.insertBefore(category, card.querySelector(".card-actions"));
+        }
+        category.contentEditable = "true";
         
         // CHANGE FROM PEN TO CHECKMARK
         icon.classList.remove("fa-pen");
         icon.classList.add("fa-check");
         
         // DISABLE DRAG WHILE EDITING
-        card.setAttribute("draggable", "false"); 
+        card.setAttribute("draggable", "false");
+
     } else {
+        
         // DISABLE EDIT
         title.contentEditable = "false";
+        if(category) category.contentEditable = "false";
         
-        // CHECKMARK TO PEN
+        // CHANGE FROM CHECKMARK TO PEN
         icon.classList.remove("fa-check");
         icon.classList.add("fa-pen");
         editBtn.classList.remove("save");
@@ -142,11 +155,11 @@ function editTask(id){
         const task = tasks.find(t => t.id === id);
         if(task){
             task.description = title.innerText.trim();
+            task.category = category ? category.innerText.trim() : "";
             localStorage.setItem("tasks", JSON.stringify(tasks));
         }
     }
 }
-
 
 let draggedCardId = null;
 
